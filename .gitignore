@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# node
+node_modules
+
+# jest
+coverage
+
+# local
+.local
+
+# typescript
+lib

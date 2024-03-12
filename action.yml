@@ -1,0 +1,29 @@
+name: 'JaCoCo Report'
+description: 'Publishes the JaCoCo report as a comment in the Pull Request'
+inputs:
+  github-token:
+    description: 'Github personal token to add commits to Pull Request'
+    required: true
+  report-path-patterns:
+    description: 'Comma separated paths of the generated jacoco xml files (supports wildcard glob pattern)'
+    required: true
+  comment-title:
+    description: 'Title for the Pull Request comment'
+    required: true
+    default: '### Code coverage'
+  comment-pass-emoji:
+    description: 'Github emoji to use for pass status shown when coverage greater than min coverage (should be a Github supported emoji)'
+    required: false
+    default: ':green_apple:'
+  comment-fail-emoji:
+    description: 'Github emoji to use for fail status shown when coverage lesser than min coverage (should be a Github supported emoji)'
+    required: false
+    default: ':apple:'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+
+branding:
+  icon: 'umbrella'
+  color: purple
